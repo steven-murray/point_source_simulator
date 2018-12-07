@@ -1,0 +1,14 @@
+
+*.so
+
+*.o
+
+devel/outputs/
+
+*.h5
+
+pssim\.egg-info/
+
+pssim/__pycache__/
+
+pssim/scripts/__pycache__/
