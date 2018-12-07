@@ -5,7 +5,7 @@ from matplotlib.colors import LogNorm, SymLogNorm
 
 def plot_power(power, u, omega, min_oom=None, u_is_logscale=True, omega_is_logscale=True,
                wedge=0, colorbar=True, xlabel=True, ylabel=True, ax=None, fig=None, vmin=None, vmax=None,
-               cmap=None, cbar_title=None, lognorm=False, horizon_line=5,
+               cmap=None, cbar_title=None, lognorm=False, horizon_line=1,
                **kwargs):
     if ax is None or fig is None:
         fig, ax = plt.subplots(1, 1)

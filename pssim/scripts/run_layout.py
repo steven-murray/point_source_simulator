@@ -30,6 +30,7 @@ def gaussian_taper(tau, fmax, n):
 @click.option("-W", "--omega-max", type=float, default=500.0, help='maximum omega')
 @click.option("--omega-grid-size", type=int, default=20, help="number of points on the omega-grid")
 @click.option("-m", "--u0-min", type=float, default=30.0, help='minimum u0 (if applicable')
+@click.option("-j", "--processes", type=int, default=1, help='number of processes to use')
 @click.option("-t", "--threads", type=int, default=1, help='number of threads to use')
 @click.option("-v", "--frequency", type=float, default=150.0, help='central frequency of observation (MHz)')
 @click.option("-T", "--tau", type=float, default=100.0, help='band precision')
@@ -43,7 +44,7 @@ def gaussian_taper(tau, fmax, n):
 @click.option("--bw", type=float, default=10.0, help='bandwidth (MHz) (if numerical)')
 def main(kind, n_antenna, prefix, plot, log, shape, nspokes, umin, umax, ugrid_size, omega_min, omega_max,
          omega_grid_size,
-         u0_min, threads, frequency, tau, taper, threshold, diameter, verbose, restart, realisations, bw):
+         u0_min, processes, threads, frequency, tau, taper, threshold, diameter, verbose, restart, realisations, bw):
     """
     Run numerically simulated power spectra from point-source only skies.
     """
@@ -123,11 +124,11 @@ def main(kind, n_antenna, prefix, plot, log, shape, nspokes, umin, umax, ugrid_s
         numerical_sparse_power_vec(
             fname=fname, umin=umin, umax=umax, nu=ugrid_size,
             taper=taper, sigma=sigma, f=f, realisations=realisations,
-            nthreads=threads, restart=restart, extent=threshold
+            nthreads=threads, restart=restart, extent=threshold, processes=processes
         )
     else:
 
         numerical_power_vec(
             fname=fname, u0=u0, umin=umin, umax=umax, nu=ugrid_size, taper=taper, sigma=sigma, f=f,
-            realisations=realisations, nthreads=threads, restart=restart, extent=threshold
+            realisations=realisations, nthreads=threads, restart=restart, extent=threshold, processes=processes
         )

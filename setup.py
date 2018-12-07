@@ -6,11 +6,12 @@ import sys
 import re
 import io
 
+DEBUG = bool(os.getenv("DEBUG", False))
 
 getvis = Extension(
     'pssim.get_visibilities',
     sources=['pssim/get_visibilities.c'],
-    extra_compile_args=['-O3', '-fopenmp'],
+    extra_compile_args=["-g -O0" if DEBUG else '-Ofast', '-fopenmp'],
     extra_link_args=['-lgomp']
 )
 

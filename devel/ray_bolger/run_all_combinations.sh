@@ -10,6 +10,7 @@ OMEGA_GRID_SIZE=32
 U0MIN=${UMIN}
 
 THREADS=1
+PROCESSES=1
 TAPER=blackman
 THRESHOLD=10
 DIAMETER=1.5
@@ -58,9 +59,10 @@ do
             LOG=--linear
         fi
 
-        jobscript="run_layout ${KIND} -N ${N_ANTENNA}   -p ${PREFIX} ${LOG} --shape ${SHAPE} -n ${NSPOKES} -u ${UMIN}"
+        jobscript="run_layout ${KIND} -N ${N_ANTENNA} -p ${PREFIX} ${LOG} --shape ${SHAPE} -n ${NSPOKES} -u ${UMIN}"
         jobscript="${jobscript} -U ${UMAX} --ugrid-size ${UGRID_SIZE} --omega-grid-size ${OMEGA_GRID_SIZE} -m ${U0MIN}"
         jobscript="${jobscript} -t ${THREADS} --taper ${TAPER} -h ${THRESHOLD} -d ${DIAMETER} -r ${REALISATIONS} --bw ${BANDWIDTH}"
+        jobscript="${jobscript} -j ${PROCESSES}"
 
         echo "time ${jobscript} --restart"
 

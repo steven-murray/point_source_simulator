@@ -95,7 +95,8 @@ def convert_angles_to_lm(theta, phi):
     return stheta * np.cos(phi), stheta * np.sin(phi)
 
 
-def make_visibilities(u0, f, sigma0, seed=None, threshold=1e-8, account_for_flux=0.95):
+def make_visibilities(u0, f, sigma0, seed=None, threshold=1e-8, account_for=0.95, moment=1, nthreads=1, Smax=1,
+                      beta=1.59):
     """
     For some kind of sky model, create a set of visibilities at baselines.
 
@@ -121,8 +122,9 @@ def make_visibilities(u0, f, sigma0, seed=None, threshold=1e-8, account_for_flux
         np.random.seed(seed)
 
     # Assume we peel to 1 Jy.
-    Smin = (1 - account_for_flux)**(1/(2-1.59))
-    sc = PowerLawSourceCounts(1, 0.9, f, 0, alpha=4100.0, beta=1.59)
+    Smin = Smax * (1 - account_for)**(1/(moment + 1 - beta))
+    sc = PowerLawSourceCounts(Smax, Smin, f, 0, alpha=4100.0, beta=beta)
+
     nbar = sc.total_number_density
 
     if hasattr(nbar, "value"):
@@ -147,7 +149,7 @@ def make_visibilities(u0, f, sigma0, seed=None, threshold=1e-8, account_for_flux
     source_pos = source_pos[:, source_flux >= np.mean(source_flux) * threshold]
     source_flux = source_flux[source_flux >= np.mean(source_flux) * threshold]
 
-    vis = get_visibilities(f, u0.T, source_flux, source_pos.T)
+    vis = get_visibilities(f, u0.T, source_flux, source_pos.T, nthreads=nthreads)
 
     return vis
 
@@ -255,15 +257,15 @@ def power_from_vis(vis, f, taper=None):
     return res, omega
 
 
-def generate_3d_power(u0, f, sigma0, u, theta, taper=None, extent=50):
+def generate_3d_power(u0, f, sigma0, u, theta, taper=None, extent=50, nthreads=1):
     if taper is None:
         taper = 1
 
     t = time.time()
     print("Generating Visibilities...", end="")
-    vis = make_visibilities(u0, f, sigma0)
+    vis = make_visibilities(u0, f, sigma0, nthreads=nthreads)
     t1 = time.time()
-    print(f"   ... took {t1-t} seconds.")
+    print(f"   ... took {(t1-t)/60} minutes.")
 
     print("Gridding Visibilities...")
     vis, weights, weights2 = grid_visibilities_polar(u0=u0, vis=vis, f=f, u=u, theta=theta, sigma=sigma0, extent=extent)
@@ -282,7 +284,7 @@ def generate_3d_power(u0, f, sigma0, u, theta, taper=None, extent=50):
     return power, weights, omega
 
 
-def generate_2d_power(u0, f, sigma, taper=None, umin=None, umax=None, nu=100, ntheta=50, extent=50):
+def generate_2d_power(u0, f, sigma, taper=None, umin=None, umax=None, nu=100, ntheta=50, extent=50, nthreads=1):
 
     if umax is None:
         umax = np.sqrt(np.max(u0[0] ** 2 + u0[1] ** 2)) / 1.2
@@ -299,7 +301,7 @@ def generate_2d_power(u0, f, sigma, taper=None, umin=None, umax=None, nu=100, nt
     power, weights, omega = generate_3d_power(
         u0=u0, f=f, sigma0=sigma, u=u, theta=theta,
         taper=taper,
-        extent=extent
+        extent=extent, nthreads=nthreads
     )
 
     wtot = np.sum(weights, axis=-1)
@@ -309,7 +311,7 @@ def generate_2d_power(u0, f, sigma, taper=None, umin=None, umax=None, nu=100, nt
     return power, omega, wtot
 
 
-def generate_2d_power_sparse(f, sigma, umin, umax, taper=None, nu = 100, ntheta = 50, extent=50):
+def generate_2d_power_sparse(f, sigma, umin, umax, taper=None, nu = 100, ntheta = 50, extent=50, nthreads=1):
     # Setup grid
     dtheta = 2 * np.pi / ntheta
 
@@ -324,7 +326,7 @@ def generate_2d_power_sparse(f, sigma, umin, umax, taper=None, nu = 100, ntheta 
         # Get power at each grid point.
         power[iu], _, omega = generate_3d_power(
             u0=u0, f=f, sigma0=sigma, u=np.array([uu]),
-            theta=theta, taper=taper,extent=extent
+            theta=theta, taper=taper,extent=extent, nthreads=nthreads
         )
 
     power = np.array(power)

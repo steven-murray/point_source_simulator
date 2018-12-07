@@ -5,7 +5,7 @@
 
 
 void getvis(int nf, int nbl, int nsource,  double *f, double *ux, double *uy,
-                    double *source_flux, double *l, double *m, double complex *vis){
+            double *source_flux, double *l, double *m, int nthreads, double complex *vis){
     /*
         Generate visibilities from a list of point sources and their apparent flux densities.
 
@@ -31,23 +31,20 @@ void getvis(int nf, int nbl, int nsource,  double *f, double *ux, double *uy,
     int i,j,k;
     double arg;
 
-    complex double thisval;
+    complex double thisval, sum;
 
-    omp_set_num_threads(2);
+    omp_set_num_threads(nthreads);
 
-    #pragma omp parallel
-    {
-        #pragma omp for collapse(2) private(arg,j,thisval)
-        for(i=0;i<nf;i++){
-            for(k=0;k<nbl;k++){
-                for(j=0;j<nsource;j++){
-
-                    arg = -f[i]*(ux[k]*l[j] + uy[k]*m[j]);
-                    thisval = source_flux[j] * cexp(I*arg);
-
-                    vis[i*nbl + k] += thisval;
-                }
+    #pragma omp parallel for collapse(2) private(arg,j,sum)
+    for(i=0;i<nf;i++){
+        for(k=0;k<nbl;k++){
+            sum = 0.0;
+            for(j=0;j<nsource;j++){
+                arg = -f[i]*(ux[k]*l[j] + uy[k]*m[j]);
+                sum += source_flux[j] * cexp(I*arg);
             }
+            vis[i*nbl + k] = sum;
+
         }
     }
 }

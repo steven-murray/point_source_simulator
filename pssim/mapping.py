@@ -14,8 +14,10 @@ def seed_wgp_sparse(seed=1, **kwargs):
     np.random.seed(seed)
     return generate_2d_power_sparse(**kwargs)
 
+def imap_unordered(fnc, iterable):
+    "Mock of multi-processing imap_unordered without using a pool"
 
-def numerical_power_vec(*, fname, u0, umin, umax, nu, taper, sigma, f, realisations, nthreads, restart=False, extent=50):
+def numerical_power_vec(*, fname, u0, umin, umax, nu, taper, sigma, f, realisations, nthreads, processes=1, restart=False, extent=50):
     done = np.zeros(realisations)
 
     with h5py.File(fname, 'w' if restart else 'a') as fl:
@@ -46,12 +48,15 @@ def numerical_power_vec(*, fname, u0, umin, umax, nu, taper, sigma, f, realisati
         np.random.seed(1234)  # Set this seed so the same thing happens every time.
         seeds = np.random.randint(0, 20000 * realisations, size=int(realisations))
 
-        pl = Pool(nthreads)
         j = np.sum(done)
 
-        fnc = partial(seed_wgp, u0=u0, f=f, sigma=sigma, taper=taper, umin=umin, umax=umax, nu=nu, ntheta=100, extent=extent)
-        for p, omega, weights in pl.imap_unordered(fnc, seeds[int(np.sum(done)):]):
+        # Only use as many processes as there are iterations, at max.
+        processes = min(processes, realisations - j)
 
+        fnc = partial(seed_wgp, u0=u0, f=f, sigma=sigma, taper=taper, umin=umin, umax=umax, nu=nu, ntheta=100,
+                      extent=extent, nthreads=nthreads)
+
+        def save_stuff(p, omega, weights):
             with h5py.File(fname, 'a') as fl:
                 fl['power'][j, :, :] = p[...].T
 
@@ -62,14 +67,23 @@ def numerical_power_vec(*, fname, u0, umin, umax, nu, taper, sigma, f, realisati
 
                 fl['done'][j] = 1
 
-            j += 1
-            print("Done %s of %s iterations." % (j, realisations))
+            print("Done %s of %s iterations." % (j+1, realisations))
 
-        pl.close()
-        pl.join()
+        if processes > 1:
+            pl = Pool(processes)
 
+            for p, omega, weights in pl.imap_unordered(fnc, seeds[int(np.sum(done)):]):
+                save_stuff(p, omega, weights)
+                j += 1
 
-def numerical_sparse_power_vec(*, fname, umin, umax, nu, taper, sigma, f, realisations, nthreads, restart=False, extent=50):
+            pl.close()
+            pl.join()
+        else:
+            for p, omega, weights in map(fnc, seeds[int(np.sum(done)):]):
+                save_stuff(p, omega, weights)
+                j += 1
+
+def numerical_sparse_power_vec(*, fname, umin, umax, nu, taper, sigma, f, realisations, nthreads, processes=1, restart=False, extent=50):
     done = np.zeros(realisations)
 
     with h5py.File(fname, 'w' if restart else 'a') as fl:
@@ -96,10 +110,11 @@ def numerical_sparse_power_vec(*, fname, umin, umax, nu, taper, sigma, f, realis
         np.random.seed(4321)  # Set this seed so the same thing happens every time.
         seeds = np.random.randint(0, 20000 * realisations, size=int(realisations))
 
-        pl = Pool(nthreads)
+        pl = Pool(processes)
         j = np.sum(done)
 
-        fnc = partial(seed_wgp_sparse, f=f, sigma=sigma, taper=taper, umin=umin, umax=umax, nu=nu, ntheta=100, extent=extent)
+        fnc = partial(seed_wgp_sparse, f=f, sigma=sigma, taper=taper, umin=umin, umax=umax, nu=nu, ntheta=100,
+                      extent=extent, nthreads=nthreads)
         for p, omega in pl.imap_unordered(fnc, seeds[int(np.sum(done)):]):
 
             with h5py.File(fname, 'a') as fl:

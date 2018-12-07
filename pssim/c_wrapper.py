@@ -9,7 +9,7 @@ cdll = ct.CDLL(glob.glob(os.path.join(os.path.dirname(__file__), "get_visibiliti
 cdll.getvis.argtypes = [
     ct.c_int, ct.c_int, ct.c_int,  np.ctypeslib.ndpointer(np.float64),
     np.ctypeslib.ndpointer(np.float64),  np.ctypeslib.ndpointer(np.float64),   np.ctypeslib.ndpointer(np.float64),
-    np.ctypeslib.ndpointer(np.float64),  np.ctypeslib.ndpointer(np.float64), np.ctypeslib.ndpointer(np.complex128)
+    np.ctypeslib.ndpointer(np.float64),  np.ctypeslib.ndpointer(np.float64), ct.c_int, np.ctypeslib.ndpointer(np.complex128)
 ]
 
 cdll.get_baselines.argtypes = [
@@ -25,7 +25,7 @@ cdll.get_bad_antennas.argtypes = [
 cdll.get_baselines.restype = ct.c_int64
 
 
-def get_visibilities(f, u0, source_flux, source_pos):
+def get_visibilities(f, u0, source_flux, source_pos, nthreads=1):
     """
     Generate visibilities from a list of point sources and their apparent flux densities.
 
@@ -52,7 +52,7 @@ def get_visibilities(f, u0, source_flux, source_pos):
     vis = np.zeros((len(f),len(u0)), dtype=np.complex128).flatten()
 
     cdll.getvis(len(f), len(u0), len(source_flux), f, 2 * u0[:, 0] * np.pi, 2 * u0[:, 1] * np.pi,
-                source_flux, source_pos[:,0], source_pos[:,1], vis)
+                source_flux, source_pos[:,0], source_pos[:,1], nthreads, vis)
 
     return vis.reshape((len(f), len(u0)))
 

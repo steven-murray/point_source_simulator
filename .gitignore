@@ -12,3 +12,5 @@ pssim\.egg-info/
 pssim/__pycache__/
 
 pssim/scripts/__pycache__/
+
+vgcore.*
