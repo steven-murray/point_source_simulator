@@ -64,7 +64,7 @@ def get_baselines_circle(N, umax, antenna_diameter=4.0):
 
 
 def get_baselines_filled_circle(N, umax, alpha=0, antenna_diameter=4.0, level=0, start_x=None, start_y=None,
-                                maxlevel=10):
+                                maxlevel=100):
     "alpha=0 corresponds to uniform disk, -1 to log disk"
 
     if level > maxlevel:
@@ -160,7 +160,24 @@ def _get_baselines_spokes_log(n_per_spoke, radius, umin=None, antenna_diameter=4
     return r
 
 
-def get_baselines_spokes(N, nspokes, umax, umin=None, log=True, antenna_diameter=4.0, base=3):
+def _get_baselines_spokes_log_large(n_per_spoke, umin, umax, antenna_diameter=4.0):
+    """
+    Create a spoke layout which attempts to fit as many baselines in an "almost regular" pattern as possible
+    """
+
+    inner_radius = umin
+
+    if inner_radius < antenna_diameter:
+        raise Exception("Can't physically fit those antennae (inner radius is too small)!")
+
+    delta = (umax/umin)**(1./n_per_spoke)
+
+    r = np.array([umin * np.sum(delta**(np.arange(i)-1)) for i in range(1,n_per_spoke+1)])
+
+    return r
+
+
+def get_baselines_spokes(N, nspokes, umax, umin=None, log=True, antenna_diameter=4.0, base=3, large=False):
     nspokes = base ** nspokes
     n_per_spoke = int((N - 1) / nspokes)  # number of antennas in each spoke (1 in the middle in every spoke).
 
@@ -170,7 +187,11 @@ def get_baselines_spokes(N, nspokes, umax, umin=None, log=True, antenna_diameter
         umin = umax / 100
 
     if log:
-        r = _get_baselines_spokes_log(n_per_spoke, radius, umin, antenna_diameter)
+        if large:
+            r = _get_baselines_spokes_log_large(n_per_spoke, umin, umax, antenna_diameter)
+        else:
+            r = _get_baselines_spokes_log(n_per_spoke, radius, umin, antenna_diameter)
+
     else:
         r = _get_baselines_spokes_linear(N, radius, n_per_spoke, nspokes, antenna_diameter)
 
@@ -179,6 +200,7 @@ def get_baselines_spokes(N, nspokes, umax, umin=None, log=True, antenna_diameter
     R = [[rr] * len(theta) for rr in r]
     THETA = [theta] * len(r)
 
+    print(r)
     # Now go through each r and see how many can fit
     for i, rr in enumerate(r):
         circumference = 2 * np.pi * rr

@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b16c03fe-7aff-46e7-9476-e9451e0e6785" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/point_source_simulator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devel/ray_bolger/.ipynb_checkpoints/plots-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/devel/ray_bolger/.ipynb_checkpoints/plots-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/devel/ray_bolger/plots.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/devel/ray_bolger/plots.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/devel/ray_bolger/run_all_combinations.sh" beforeDir="false" afterPath="$PROJECT_DIR$/devel/ray_bolger/run_all_combinations.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pssim/c_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/c_wrapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pssim/get_visibilities.c" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/get_visibilities.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pssim/layouts.py" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/layouts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pssim/make_power_spectra.py" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/make_power_spectra.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pssim/mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/mapping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pssim/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/plots.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pssim/scripts/run_layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/scripts/run_layout.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
@@ -99,17 +95,21 @@
     <session id="1275855970">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="c" value="3" />
           <entry key="gitignore" value="1" />
-          <entry key="py" value="11" />
+          <entry key="py" value="13" />
           <entry key="rst" value="1" />
           <entry key="sh" value="3" />
         </counts>
@@ -119,7 +119,7 @@
           <entry key="Bash" value="3" />
           <entry key="C++" value="3" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="11" />
+          <entry key="Python" value="13" />
           <entry key="ReST" value="1" />
         </counts>
       </usages-collector>
@@ -128,17 +128,17 @@
           <entry key="Python Console" value="142" />
           <entry key="c" value="2173" />
           <entry key="gitignore" value="9" />
-          <entry key="py" value="10121" />
+          <entry key="py" value="11261" />
           <entry key="rst" value="181" />
-          <entry key="sh" value="1284" />
+          <entry key="sh" value="1525" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Bash" value="1284" />
+          <entry key="Bash" value="1525" />
           <entry key="C++" value="2173" />
           <entry key="PLAIN_TEXT" value="9" />
-          <entry key="Python" value="10263" />
+          <entry key="Python" value="11403" />
           <entry key="ReST" value="181" />
         </counts>
       </usages-collector>
@@ -149,15 +149,27 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/pssim/scripts/run_layout.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1965">
+                  <caret line="138" selection-start-line="138" selection-end-line="138" />
+                  <folding>
+                    <element signature="e#0#29#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pssim/layouts.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+                <state relative-caret-position="2550">
+                  <caret line="174" column="55" selection-start-line="174" selection-start-column="55" selection-end-line="174" selection-end-column="55" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
-                    <marker date="1544139284015" expanded="true" signature="153:606" ph="..." />
-                    <marker date="1544139284015" expanded="true" signature="3360:4624" ph="..." />
-                    <marker date="1544139284015" expanded="true" signature="5312:6665" ph="..." />
+                    <marker date="1544561451245" expanded="true" signature="153:606" ph="..." />
+                    <marker date="1544561451245" expanded="true" signature="3361:4625" ph="..." />
+                    <marker date="1544561451245" expanded="true" signature="5844:7338" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -166,17 +178,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pssim/make_power_spectra.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="132" column="4" lean-forward="true" selection-start-line="132" selection-start-column="4" selection-end-line="132" selection-end-column="4" />
+                <state relative-caret-position="4605">
+                  <caret line="314" column="36" selection-start-line="314" selection-start-column="36" selection-end-line="314" selection-end-column="36" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
-                    <marker date="1544204965512" expanded="true" signature="1867:2670" ph="..." />
+                    <marker date="1544209583913" expanded="true" signature="1867:2670" ph="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="225">
@@ -185,11 +197,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/setup.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+                <state relative-caret-position="537">
+                  <caret line="39" column="89" selection-start-line="39" selection-start-column="89" selection-end-line="39" selection-end-column="89" />
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
                   </folding>
@@ -198,14 +210,9 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/README.rst">
-              <provider selected="true" editor-type-id="restructured-text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pssim/c_wrapper.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-303">
+                <state relative-caret-position="105">
                   <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
                   <folding>
                     <element signature="e#20#39#0" expanded="true" />
@@ -217,8 +224,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pssim/plots.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="7" column="72" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
+                <state relative-caret-position="975">
+                  <caret line="67" selection-start-line="62" selection-end-line="67" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -229,11 +236,11 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pssim/mapping.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-495">
-                  <caret column="29" selection-start-column="29" selection-end-column="29" />
+                <state relative-caret-position="1845">
+                  <caret line="127" selection-start-line="127" selection-end-line="127" />
                   <folding>
-                    <marker date="1544203178642" expanded="true" signature="434:503" ph="..." />
-                    <marker date="1544203178642" expanded="true" signature="2212:2635" ph="..." />
+                    <marker date="1544209583903" expanded="true" signature="434:503" ph="..." />
+                    <marker date="1544209583903" expanded="true" signature="2464:2887" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -261,20 +268,20 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pssim/get_visibilities.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-233">
+                <state relative-caret-position="555">
                   <caret line="37" selection-start-line="37" selection-end-line="37" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/devel/ray_bolger/run_all_combinations.sh">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-135">
-                  <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+                <state relative-caret-position="268">
+                  <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
                 </state>
               </provider>
             </entry>
@@ -331,16 +338,16 @@
         <option value="$PROJECT_DIR$/pssim/__init__.py" />
         <option value="$PROJECT_DIR$/scripts/run_layout.py" />
         <option value="$PROJECT_DIR$/devel/run_layout.sh" />
-        <option value="$PROJECT_DIR$/pssim/layouts.py" />
-        <option value="$PROJECT_DIR$/pssim/scripts/run_layout.py" />
         <option value="$PROJECT_DIR$/pssim/plots.py" />
-        <option value="$PROJECT_DIR$/devel/ray_bolger/run_all_combinations.sh" />
         <option value="$PROJECT_DIR$/pssim/c_wrapper.py" />
-        <option value="$PROJECT_DIR$/pssim/mapping.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/pssim/get_visibilities.c" />
-        <option value="$PROJECT_DIR$/pssim/make_power_spectra.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/pssim/mapping.py" />
+        <option value="$PROJECT_DIR$/pssim/make_power_spectra.py" />
+        <option value="$PROJECT_DIR$/pssim/scripts/run_layout.py" />
+        <option value="$PROJECT_DIR$/pssim/layouts.py" />
+        <option value="$PROJECT_DIR$/devel/ray_bolger/run_all_combinations.sh" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
@@ -351,8 +358,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1358" />
-    <option name="height" value="740" />
+    <option name="x" value="37" />
+    <option name="y" value="26" />
+    <option name="width" value="1885" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -398,7 +407,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spore" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../HANKEL/hankel" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -437,10 +446,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="44" width="2562" height="1373" extended-state="6" />
+    <frame x="-1" y="88" width="2562" height="1329" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13643596" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0055688145" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -452,7 +461,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2888" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.33416253" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32245827" />
@@ -526,10 +535,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pssim/numerical.py" />
+    <entry file="file://$PROJECT_DIR$/README.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/pssim/scripts/run_layout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="132" column="111" selection-start-line="132" selection-start-column="111" selection-end-line="132" selection-end-column="111" />
+        <state relative-caret-position="1965">
+          <caret line="138" selection-start-line="138" selection-end-line="138" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -538,26 +550,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pssim/layouts.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+        <state relative-caret-position="2550">
+          <caret line="174" column="55" selection-start-line="174" selection-start-column="55" selection-end-line="174" selection-end-column="55" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1544139284015" expanded="true" signature="153:606" ph="..." />
-            <marker date="1544139284015" expanded="true" signature="3360:4624" ph="..." />
-            <marker date="1544139284015" expanded="true" signature="5312:6665" ph="..." />
+            <marker date="1544561451245" expanded="true" signature="153:606" ph="..." />
+            <marker date="1544561451245" expanded="true" signature="3361:4625" ph="..." />
+            <marker date="1544561451245" expanded="true" signature="5844:7338" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
+    <entry file="file://$PROJECT_DIR$/pssim/make_power_spectra.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4605">
+          <caret line="314" column="36" selection-start-line="314" selection-start-column="36" selection-end-line="314" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1544209583913" expanded="true" signature="1867:2670" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pssim/c_wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding>
+            <element signature="e#20#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pssim/plots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="72" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
+        <state relative-caret-position="975">
+          <caret line="67" selection-start-line="62" selection-end-line="67" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pssim/mapping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1845">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+          <folding>
+            <marker date="1544209583903" expanded="true" signature="434:503" ph="..." />
+            <marker date="1544209583903" expanded="true" signature="2464:2887" ph="..." />
           </folding>
         </state>
       </provider>
@@ -569,66 +617,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pssim/mapping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-495">
-          <caret column="29" selection-start-column="29" selection-end-column="29" />
-          <folding>
-            <marker date="1544203178642" expanded="true" signature="434:503" ph="..." />
-            <marker date="1544203178642" expanded="true" signature="2212:2635" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/devel/ray_bolger/run_all_combinations.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        <state relative-caret-position="537">
+          <caret line="39" column="89" selection-start-line="39" selection-start-column="89" selection-end-line="39" selection-end-column="89" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pssim/c_wrapper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-303">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding>
-            <element signature="e#20#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pssim/get_visibilities.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-233">
+        <state relative-caret-position="555">
           <caret line="37" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pssim/make_power_spectra.py">
+    <entry file="file://$PROJECT_DIR$/devel/ray_bolger/run_all_combinations.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="132" column="4" lean-forward="true" selection-start-line="132" selection-start-column="4" selection-end-line="132" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1544204965512" expanded="true" signature="1867:2670" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        <state relative-caret-position="268">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
         </state>
       </provider>
     </entry>

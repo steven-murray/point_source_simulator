@@ -17,7 +17,8 @@ def seed_wgp_sparse(seed=1, **kwargs):
 def imap_unordered(fnc, iterable):
     "Mock of multi-processing imap_unordered without using a pool"
 
-def numerical_power_vec(*, fname, u0, umin, umax, nu, taper, sigma, f, realisations, nthreads, processes=1, restart=False, extent=50):
+def numerical_power_vec(*, fname, u0, umin, umax, nu, taper, sigma, f, realisations, nthreads, processes=1, restart=False,
+                        extent=50, sky_moment=1, Smax=1):
     done = np.zeros(realisations)
 
     with h5py.File(fname, 'w' if restart else 'a') as fl:
@@ -26,6 +27,8 @@ def numerical_power_vec(*, fname, u0, umin, umax, nu, taper, sigma, f, realisati
             fl.attrs['nu'] = nu
             fl.attrs['realisations'] = realisations
             fl.attrs['extent'] = extent
+            fl.attrs['moment'] = sky_moment
+            fl.attrs['Smax'] = Smax
 
             fl.create_dataset("power", data=np.zeros((realisations, nu, int(len(f)/2))))
             fl.create_dataset("weights", data=np.zeros(nu))
@@ -39,6 +42,8 @@ def numerical_power_vec(*, fname, u0, umin, umax, nu, taper, sigma, f, realisati
             assert fl.attrs['realisations'] == realisations
             assert fl.attrs['sigma'] == sigma
             assert fl.attrs['nu'] == nu
+            assert fl.attrs['moment'] == sky_moment
+            assert fl.attrs['Smax'] == Smax
 
             done[...] = fl['done'][...]
 
@@ -54,7 +59,7 @@ def numerical_power_vec(*, fname, u0, umin, umax, nu, taper, sigma, f, realisati
         processes = min(processes, realisations - j)
 
         fnc = partial(seed_wgp, u0=u0, f=f, sigma=sigma, taper=taper, umin=umin, umax=umax, nu=nu, ntheta=100,
-                      extent=extent, nthreads=nthreads)
+                      extent=extent, nthreads=nthreads, moment=sky_moment, Smax=Smax)
 
         def save_stuff(p, omega, weights):
             with h5py.File(fname, 'a') as fl:
@@ -83,7 +88,8 @@ def numerical_power_vec(*, fname, u0, umin, umax, nu, taper, sigma, f, realisati
                 save_stuff(p, omega, weights)
                 j += 1
 
-def numerical_sparse_power_vec(*, fname, umin, umax, nu, taper, sigma, f, realisations, nthreads, processes=1, restart=False, extent=50):
+def numerical_sparse_power_vec(*, fname, umin, umax, nu, taper, sigma, f, realisations, nthreads, processes=1,
+                               restart=False, extent=50, sky_moment=1, Smax=1):
     done = np.zeros(realisations)
 
     with h5py.File(fname, 'w' if restart else 'a') as fl:
@@ -91,6 +97,8 @@ def numerical_sparse_power_vec(*, fname, umin, umax, nu, taper, sigma, f, realis
             fl.attrs['sigma'] = sigma
             fl.attrs['nu'] = nu
             fl.attrs['realisations'] = realisations
+            fl.attrs['moment'] = sky_moment
+            fl.attrs['Smax'] = Smax
 
             fl.create_dataset("power", data=np.zeros((realisations, nu, int(len(f)/2))))
             fl.create_dataset("u", data=np.zeros(nu))
@@ -101,6 +109,8 @@ def numerical_sparse_power_vec(*, fname, umin, umax, nu, taper, sigma, f, realis
             assert fl.attrs['realisations'] == realisations
             assert fl.attrs['sigma'] == sigma
             assert fl.attrs['nu'] == nu
+            assert fl.attrs['Smax'] == Smax
+            assert fl.attrs['moment'] == sky_moment
 
             done[...] = fl['done'][...]
 
@@ -114,7 +124,8 @@ def numerical_sparse_power_vec(*, fname, umin, umax, nu, taper, sigma, f, realis
         j = np.sum(done)
 
         fnc = partial(seed_wgp_sparse, f=f, sigma=sigma, taper=taper, umin=umin, umax=umax, nu=nu, ntheta=100,
-                      extent=extent, nthreads=nthreads)
+                      extent=extent, nthreads=nthreads, moment=sky_moment, Smax=Smax)
+
         for p, omega in pl.imap_unordered(fnc, seeds[int(np.sum(done)):]):
 
             with h5py.File(fname, 'a') as fl:

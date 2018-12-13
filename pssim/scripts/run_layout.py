@@ -42,9 +42,13 @@ def gaussian_taper(tau, fmax, n):
               help='whether to restart the integration, or continue if found.')
 @click.option("-r", "--realisations", type=int, default=200, help="how many realisations to run if doing numerical.")
 @click.option("--bw", type=float, default=10.0, help='bandwidth (MHz) (if numerical)')
+@click.option("--sky-moment", type=float, default=1, help="moment of source counts for which to calculate threshold")
+@click.option("--smax", type=float, default=1, help="flux density (Jy) of upper limit of source counts (peeling limit)")
+@click.option("--large/--not-large", default=False, help="make log-spoke models expand indefinitely")
 def main(kind, n_antenna, prefix, plot, log, shape, nspokes, umin, umax, ugrid_size, omega_min, omega_max,
          omega_grid_size,
-         u0_min, processes, threads, frequency, tau, taper, threshold, diameter, verbose, restart, realisations, bw):
+         u0_min, processes, threads, frequency, tau, taper, threshold, diameter, verbose, restart, realisations, bw,
+         sky_moment, smax, large):
     """
     Run numerically simulated power spectra from point-source only skies.
     """
@@ -62,7 +66,7 @@ def main(kind, n_antenna, prefix, plot, log, shape, nspokes, umin, umax, ugrid_s
 
     name = kind
     extras = (f"{n_antenna}_{umin:.2f}_{umax:.2f}_{ugrid_size}_{omega_grid_size}_{omega_min:.2f}_{omega_max:.2f}" +
-              f"_{frequency:.0f}_{tau if taper is None else taper}_{threshold:.0f}_{diameter:.1f}")
+              f"_{frequency:.0f}_{tau if taper is None else taper}_{threshold:.0f}_{diameter:.1f}_{sky_moment}_{smax}{'_large' if large else ''}")
 
     if kind == "circle":
         u0, x = layouts.get_baselines_circle(n_antenna, umax=umax, antenna_diameter=diameter)
@@ -72,7 +76,7 @@ def main(kind, n_antenna, prefix, plot, log, shape, nspokes, umin, umax, ugrid_s
         name += "_%s" % shape
     elif kind == 'spokes':
         u0, x = layouts.get_baselines_spokes(n_antenna, umax=umax, nspokes=nspokes, umin=u0_min,
-                                             log=log, antenna_diameter=diameter)
+                                             log=log, antenna_diameter=diameter, large=large)
         name += "_%s_%s_%.1f" % ('log' if log else "lin", nspokes, u0_min)
     elif kind == 'rlx_boundary':
         u0, x = layouts.get_baselines_rlx_boundary(n_antenna, umax=umax, antenna_diameter=diameter)
@@ -124,11 +128,11 @@ def main(kind, n_antenna, prefix, plot, log, shape, nspokes, umin, umax, ugrid_s
         numerical_sparse_power_vec(
             fname=fname, umin=umin, umax=umax, nu=ugrid_size,
             taper=taper, sigma=sigma, f=f, realisations=realisations,
-            nthreads=threads, restart=restart, extent=threshold, processes=processes
+            nthreads=threads, restart=restart, extent=threshold, processes=processes, sky_moment=sky_moment, Smax=smax
         )
     else:
-
         numerical_power_vec(
             fname=fname, u0=u0, umin=umin, umax=umax, nu=ugrid_size, taper=taper, sigma=sigma, f=f,
-            realisations=realisations, nthreads=threads, restart=restart, extent=threshold, processes=processes
+            realisations=realisations, nthreads=threads, restart=restart, extent=threshold, processes=processes,
+            sky_moment=sky_moment, Smax=smax
         )

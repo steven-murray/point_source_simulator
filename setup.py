@@ -37,7 +37,7 @@ setup(
     name="pssim",
     version=find_version("pssim", "__init__.py"),
     packages=['pssim'],
-    install_requires=["numpy>=1.6.2", "spore", "scikit-learn", 'click'],
+    install_requires=["numpy>=1.6.2", "spore", "scikit-learn", 'click', 'h5py', 'powerbox'],
     author="Steven Murray",
     author_email="steven.g.murray@asu.edu",
     description="Simple point-source simulations of interferometric visibilities",
