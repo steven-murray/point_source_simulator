@@ -37,14 +37,25 @@ do
             1)
                 KIND=spokes
                 LOG=0
-                NSPOKES=3
                 BASE=3
+                if [ $N_ANTENNA -lt 10000 ]
+                then
+                    NSPOKES=3
+                else
+                    NSPOKES=5
+                fi
                 ;;
             2)
                 KIND=spokes
                 LOG=1
-                NSPOKES=4
-                BASE=3
+                if [ $N_ANTENNA -lt 10000 ]
+                then
+                    BASE=3
+                    NSPOKES=4
+                else
+                    BASE=2
+                    NSPOKES=9
+                fi
                 ;;
             3)
                 KIND=filled_circle
