@@ -95,7 +95,6 @@ def get_baselines_filled_circle(N, umax, alpha=0, antenna_diameter=4.0, level=0,
     x = np.concatenate((start_x, x))
     y = np.concatenate((start_y, y))
 
-
     u = bl_from_x(x, y, antenna_diameter, exception=False)
 
     if not hasattr(u, "shape"):
@@ -200,7 +199,6 @@ def get_baselines_spokes(N, nspokes, umax, umin=None, log=True, antenna_diameter
     R = [[rr] * len(theta) for rr in r]
     THETA = [theta] * len(r)
 
-    print(r)
     # Now go through each r and see how many can fit
     for i, rr in enumerate(r):
         circumference = 2 * np.pi * rr
