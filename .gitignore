@@ -15,3 +15,7 @@ pssim/scripts/__pycache__/
 
 vgcore.*
 devel/ray_bolger/\.ipynb_checkpoints/
+
+devel/ray_bolger/__pycache__/
+
+devel/ray_bolger/tmp\.py
