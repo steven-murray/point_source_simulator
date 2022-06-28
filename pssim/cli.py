@@ -3,7 +3,7 @@ from os import path
 
 import click
 import numpy as np
-
+from scipy import signal
 from pssim import layouts
 from pssim.mapping import numerical_power_vec, numerical_sparse_power_vec
 
@@ -13,8 +13,9 @@ def gaussian_taper(tau, fmax, n):
 
     return np.exp(-(f - 1) ** 2 * tau ** 2)
 
+main = click.Group()
 
-@click.command()
+@main.command()
 @click.argument("kind", type=click.Choice(["circle", "filled_circle", "spokes", "rlx_boundary", "rlx_grid", "hexagon",
                                            'spokes-pure', 'sparse']))
 @click.option("-N", "--n_antenna", default=128, type=int, help="(approximate) number of antennae in layout")
@@ -45,7 +46,7 @@ def gaussian_taper(tau, fmax, n):
 @click.option("--sky-moment", type=float, default=1, help="moment of source counts for which to calculate threshold")
 @click.option("--smax", type=float, default=1, help="flux density (Jy) of upper limit of source counts (peeling limit)")
 @click.option("--large/--not-large", default=False, help="make log-spoke models expand indefinitely")
-def main(kind, n_antenna, prefix, plot, log, shape, nspokes, umin, umax, ugrid_size, omega_min, omega_max,
+def layout(kind, n_antenna, prefix, plot, log, shape, nspokes, umin, umax, ugrid_size, omega_min, omega_max,
          omega_grid_size,
          u0_min, processes, threads, frequency, tau, taper, threshold, diameter, verbose, restart, realisations, bw,
          sky_moment, smax, large):
@@ -120,7 +121,10 @@ def main(kind, n_antenna, prefix, plot, log, shape, nspokes, umin, umax, ugrid_s
     f = np.linspace(frequency - bw / 2, frequency + bw / 2, omega_grid_size * 2 + 1) / frequency
 
     if taper is not None:
-        taper = getattr(np, taper)
+        try:
+            taper = getattr(np, taper)
+        except AttributeError:
+            taper = getattr(signal, taper)
     else:
         taper = partial(gaussian_taper, tau, f)
 
@@ -136,3 +140,73 @@ def main(kind, n_antenna, prefix, plot, log, shape, nspokes, umin, umax, ugrid_s
             realisations=realisations, nthreads=threads, restart=restart, extent=threshold, processes=processes,
             sky_moment=sky_moment, Smax=smax
         )
+
+
+@main.command()
+@click.argument("layout-file", type=click.Path(exists=True, dir_okay=False))
+@click.option("-p", '--prefix', default="")
+@click.option("-P", "--plot/--no-plot", default=False)
+@click.option("-u", "--umin", type=float, default=30.0, help='minimum u')
+@click.option("-U", "--umax", type=float, default=800.0, help='maximum u')
+@click.option("--ugrid-size", type=int, default=20, help="number of points on the u-grid")
+@click.option("-w", "--omega-min", type=float, default=40.0, help='minimum omega')
+@click.option("-W", "--omega-max", type=float, default=500.0, help='maximum omega')
+@click.option("--omega-grid-size", type=int, default=20, help="number of points on the omega-grid")
+@click.option("-j", "--processes", type=int, default=1, help='number of processes to use')
+@click.option("-t", "--threads", type=int, default=1, help='number of threads to use')
+@click.option("-v", "--frequency", type=float, default=150.0, help='central frequency of observation (MHz)')
+@click.option("-T", "--tau", type=float, default=100.0, help='band precision')
+@click.option("--taper", type=str, default='blackmanharris', help="kind of taper (must be available in numpy or scipy.signal)")
+@click.option("-h", "--threshold", type=float, default=5.0, help='order-of-magnitude threshold tolerance')
+@click.option("-d", "--diameter", type=float, default=4.0, help='antenna (tile) diameter')
+@click.option("-v", "--verbose/--not-verbose", default=False)
+@click.option("-r", "--realisations", type=int, default=200, help="how many realisations to run if doing numerical.")
+@click.option("--bw", type=float, default=10.0, help='bandwidth (MHz) (if numerical)')
+@click.option("--sky-moment", type=float, default=1, help="moment of source counts for which to calculate threshold")
+@click.option("--smax", type=float, default=1, help="flux density (Jy) of upper limit of source counts (peeling limit)")
+@click.option("--red-tol", type=int, default=2, help="number of decimal places to which to ensure redundancy")
+def run(layout_file,  prefix, plot, umin, umax, ugrid_size, omega_min, omega_max,
+           omega_grid_size, processes, threads, frequency, tau, taper, threshold,
+           diameter, verbose, realisations, bw, sky_moment, smax, red_tol):
+    """
+    Run numerically simulated power spectra from point-source only skies.
+    """
+    input_args = locals()
+
+    sigma = 0.42 * 3e2 / (frequency * diameter)
+
+    # Now pad the diameter to make sure no "square" tiles overlap:
+    # diameter *= np.sqrt(2)
+
+    u = np.logspace(np.log10(umin), np.log10(umax), ugrid_size)
+    omega = np.logspace(np.log10(omega_min), np.log10(omega_max), omega_grid_size)
+
+    extras = (f"{umin:.2f}_{umax:.2f}_{ugrid_size}_{omega_grid_size}_{omega_min:.2f}_{omega_max:.2f}" +
+              f"_{frequency:.0f}_{tau if taper is None else taper}_{threshold:.0f}_{diameter:.1f}_{sky_moment}_{smax}")
+
+    x, y = np.genfromtxt(layout_file).T
+    u0 = layouts.bl_from_x(x, y, antenna_diameter=0, ignore_redundant=False) # diameter=0 to not care about overlapping antennas
+
+
+    name = path.splitext(layout_file)[0] + extras
+    fname = path.join(prefix, name+'.h5')
+
+    f = np.linspace(frequency - bw / 2, frequency + bw / 2, omega_grid_size * 2 + 1) / frequency
+
+    # Now cull u0 that are significantly outside our bounds.
+    u0mag = np.sqrt(u0[0] ** 2 + u0[1] ** 2)
+    u0 = u0[:, np.logical_and(u0mag > umin / f.max() - 4/np.pi/sigma**2, u0mag < umax/f.min() + 4/np.pi/sigma**2)]
+
+    if taper is not None:
+        try:
+            taper = getattr(np, taper)
+        except AttributeError:
+            taper = getattr(signal, taper)
+    else:
+        taper = partial(gaussian_taper, tau, f)
+
+    numerical_power_vec(
+        fname=fname, u0=u0, umin=umin, umax=umax, nu=ugrid_size, taper=taper, sigma=sigma, f=f,
+        realisations=realisations, nthreads=threads, extent=threshold, processes=processes,
+        sky_moment=sky_moment, Smax=smax, with_conj=True, redundancy_tol=red_tol
+    )

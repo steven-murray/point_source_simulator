@@ -3,6 +3,17 @@
 #include <stdio.h>
 #include <omp.h>
 
+#define PBSTR "===================================================================================================="
+#define PBWIDTH 100
+
+void printProgress (double percentage)
+{
+    int val = (int) (percentage * 100);
+    int lpad = (int) (percentage * PBWIDTH);
+    int rpad = PBWIDTH - lpad;
+    printf ("\r%3d%% [%.*s%*s]", val, lpad, PBSTR, rpad, "");
+    fflush (stdout);
+}
 
 void getvis(int nf, int nbl, int nsource,  double *f, double *ux, double *uy,
             double *source_flux, double *l, double *m, int nthreads, double complex *vis){
@@ -34,6 +45,7 @@ void getvis(int nf, int nbl, int nsource,  double *f, double *ux, double *uy,
     complex double thisval, sum;
 
     omp_set_num_threads(nthreads);
+    int done = 0;
 
     #pragma omp parallel for collapse(2) private(arg,j,sum)
     for(i=0;i<nf;i++){
@@ -46,6 +58,8 @@ void getvis(int nf, int nbl, int nsource,  double *f, double *ux, double *uy,
             vis[i*nbl + k] = sum;
 
         }
+        done += 1;
+        printProgress(done/nf);
     }
 }
 

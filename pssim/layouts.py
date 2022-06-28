@@ -39,13 +39,22 @@ def _bl_from_x(x, y, antenna_diameter=4.0, exception=True, ignore_redundant=True
     dist_mag2 = dist_mag2[dist_mag2 > 0]
 
     if np.any(dist_mag2 < antenna_diameter ** 2):
-        raise RuntimeError(
-            "%s of the baselines were smaller than the antenna diameter (min=%s, diam=%s)" % (
-                np.sum(dist_mag2 < antenna_diameter ** 2),
-                np.sqrt(dist_mag2.min()),
-                antenna_diameter
+        if exception:
+            raise RuntimeError(
+                "%s of the baselines were smaller than the antenna diameter (min=%s, diam=%s)" % (
+                    np.sum(dist_mag2 < antenna_diameter ** 2),
+                    np.sqrt(dist_mag2.min()),
+                    antenna_diameter
+                )
             )
-        )
+        else:
+            warnings.warn(
+                "%s of the baselines were smaller than the antenna diameter (min=%s, diam=%s)" % (
+                    np.sum(dist_mag2 < antenna_diameter ** 2),
+                    np.sqrt(dist_mag2.min()),
+                    antenna_diameter
+                )
+            )
 
     return dist / 2  # divide by two, which is c/nu with nu=150MHz
 

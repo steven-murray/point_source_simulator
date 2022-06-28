@@ -48,7 +48,7 @@ setup(
     ext_modules=[getvis],
     entry_points={
         'console_scripts': [
-            'run_layout = pssim.scripts.run_layout:main',
+            'pssim = pssim.cli:main',
         ]
     }
     # could also include long_description, download_url, classifiers, etc.

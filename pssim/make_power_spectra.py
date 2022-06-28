@@ -96,7 +96,7 @@ def convert_angles_to_lm(theta, phi):
 
 
 def make_visibilities(u0, f, sigma0, seed=None, threshold=1e-8, account_for=0.95, moment=1, nthreads=1, Smax=1,
-                      beta=1.59):
+                      beta=1.59, with_conj=False, redundancy_tol=3):
     """
     For some kind of sky model, create a set of visibilities at baselines.
 
@@ -138,7 +138,21 @@ def make_visibilities(u0, f, sigma0, seed=None, threshold=1e-8, account_for=0.95
 
     source_flux = sc.sample_source_counts(N)
 
-    print(f" for {N} sources and {len(u0[0])} baselines... (estimated time is {len(f)*len(u0[0])*N*3/1e10} minutes)")
+    assert u0.shape[0] == 2
+
+    u0_ = np.round(u0, redundancy_tol)
+    u0_, ind, inv_ind, weights  = np.unique(u0_, axis=-1, return_index=True, return_counts=True, return_inverse=True)
+
+    # reduce the u0 down to non-redundant groups
+    u0 = u0[:, ind]
+
+    if with_conj:
+        print(f" for {N} sources and {len(u0[0])/2} (independent) baselines... "
+              f"(estimated time is {len(f)*len(u0[0])*N*3/2e10/nthreads} minutes)")
+    else:
+        print(
+            f" for {N} sources and {len(u0[0])} baselines... "
+            f"(estimated time is {len(f)*len(u0[0])*N*3/1e10/nthreads} minutes)")
 
     source_pos = np.array([l, m])
 
@@ -150,6 +164,10 @@ def make_visibilities(u0, f, sigma0, seed=None, threshold=1e-8, account_for=0.95
     source_flux = source_flux[source_flux >= np.mean(source_flux) * threshold]
 
     vis = get_visibilities(f, u0.T, source_flux, source_pos.T, nthreads=nthreads)
+
+    # Now we need to add back in the redundant ones.
+    # vis is shape (f, u0)
+    vis = vis[:, inv_ind]
 
     return vis
 
@@ -257,13 +275,13 @@ def power_from_vis(vis, f, taper=None):
     return res, omega
 
 
-def generate_3d_power(u0, f, sigma0, u, theta, taper=None, extent=50, nthreads=1, moment=1, Smax=1):
+def generate_3d_power(u0, f, sigma0, u, theta, taper=None, extent=50, nthreads=1, moment=1, Smax=1, with_conj=False, redundancy_tol=3):
     if taper is None:
         taper = 1
 
     t = time.time()
     print("Generating Visibilities...", end="")
-    vis = make_visibilities(u0, f, sigma0, nthreads=nthreads, moment=moment, Smax=Smax)
+    vis = make_visibilities(u0, f, sigma0, nthreads=nthreads, moment=moment, Smax=Smax, with_conj=with_conj, redundancy_tol=redundancy_tol)
     t1 = time.time()
     print(f"   ... took {(t1-t)/60} minutes.")
 
@@ -284,7 +302,7 @@ def generate_3d_power(u0, f, sigma0, u, theta, taper=None, extent=50, nthreads=1
     return power, weights, omega
 
 
-def generate_2d_power(u0, f, sigma, taper=None, umin=None, umax=None, nu=100, ntheta=50, extent=50, nthreads=1, moment=1, Smax=1):
+def generate_2d_power(u0, umin=None, umax=None, nu=100, ntheta=50, **kwargs):
 
     if umax is None:
         umax = np.sqrt(np.max(u0[0] ** 2 + u0[1] ** 2)) / 1.2
@@ -299,9 +317,8 @@ def generate_2d_power(u0, f, sigma, taper=None, umin=None, umax=None, nu=100, nt
 
     # Get power at each grid point.
     power, weights, omega = generate_3d_power(
-        u0=u0, f=f, sigma0=sigma, u=u, theta=theta,
-        taper=taper,
-        extent=extent, nthreads=nthreads, moment=moment, Smax=Smax
+        u0=u0, u=u, theta=theta,
+        **kwargs
     )
 
     wtot = np.sum(weights, axis=-1)

@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b16c03fe-7aff-46e7-9476-e9451e0e6785" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/devel/ray_bolger/plot_tools.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/devel/ray_bolger/varvis.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devel/ray_bolger/plots.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/devel/ray_bolger/plots.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devel/ray_bolger/analytic_1d_solution.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/devel/ray_bolger/expected_power.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/devel/ray_bolger/plot_tools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/devel/ray_bolger/varvis.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pssim/c_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/c_wrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pssim/get_visibilities.c" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/get_visibilities.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pssim/layouts.py" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/layouts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pssim/make_power_spectra.py" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/make_power_spectra.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pssim/mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/mapping.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pssim/scripts/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pssim/scripts/run_layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/pssim/cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,298 +31,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-985409017">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="6" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="c" value="2896" />
-          <entry key="py" value="4776" />
-          <entry key="sbatch" value="35" />
-          <entry key="sh" value="162" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Bash" value="197" />
-          <entry key="C++" value="2896" />
-          <entry key="Python" value="4776" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="c" value="1" />
-          <entry key="py" value="12" />
-          <entry key="sbatch" value="1" />
-          <entry key="sh" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Bash" value="1" />
-          <entry key="C++" value="1" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="12" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.js.language.service.starts" />
-      <usages-collector id="statistics.vcs.git.usages" />
-    </session>
-    <session id="468989647">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="c" value="2" />
-          <entry key="py" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="C++" value="2" />
-          <entry key="Python" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit" />
-      <usages-collector id="statistics.vcs.git.usages" />
-      <usages-collector id="statistics.file.extensions.edit" />
-      <usages-collector id="statistics.js.language.service.starts" />
-    </session>
-    <session id="1275855970">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.11" value="3" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.8" value="2" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="10" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="c" value="4" />
-          <entry key="gitignore" value="1" />
-          <entry key="ipynb" value="1" />
-          <entry key="py" value="15" />
-          <entry key="rst" value="1" />
-          <entry key="sh" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Bash" value="3" />
-          <entry key="C++" value="4" />
-          <entry key="IPNB" value="1" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="15" />
-          <entry key="ReST" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="Python Console" value="142" />
-          <entry key="c" value="4668" />
-          <entry key="gitignore" value="9" />
-          <entry key="py" value="11568" />
-          <entry key="rst" value="181" />
-          <entry key="sh" value="1657" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Bash" value="1657" />
-          <entry key="C++" value="4668" />
-          <entry key="PLAIN_TEXT" value="9" />
-          <entry key="Python" value="11710" />
-          <entry key="ReST" value="181" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.44924098">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pssim/layouts.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2730">
-                  <caret line="186" selection-start-line="186" selection-end-line="186" />
-                  <folding>
-                    <element signature="e#0#15#0" expanded="true" />
-                    <marker date="1544726062018" expanded="true" signature="153:606" ph="..." />
-                    <marker date="1544726062018" expanded="true" signature="3360:4624" ph="..." />
-                    <marker date="1544726062018" expanded="true" signature="5843:7324" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pssim/make_power_spectra.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4605">
-                  <caret line="314" column="36" selection-start-line="314" selection-start-column="36" selection-end-line="314" selection-end-column="36" />
-                  <folding>
-                    <element signature="e#0#11#0" expanded="true" />
-                    <marker date="1544209583913" expanded="true" signature="1867:2670" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/setup.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="495">
-                  <caret line="39" column="89" selection-start-line="39" selection-start-column="89" selection-end-line="39" selection-end-column="89" />
-                  <folding>
-                    <element signature="e#0#28#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pssim/c_wrapper.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#20#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/devel/ray_bolger/plot_tools.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pssim/plots.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="975">
-                  <caret line="67" selection-start-line="62" selection-end-line="67" />
-                  <folding>
-                    <element signature="e#0#31#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pssim/mapping.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1845">
-                  <caret line="127" selection-start-line="127" selection-end-line="127" />
-                  <folding>
-                    <marker date="1544209583903" expanded="true" signature="434:503" ph="..." />
-                    <marker date="1544209583903" expanded="true" signature="2464:2887" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/devel/run_layout.sh">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1380">
-                  <caret line="92" selection-start-line="92" selection-end-line="97" selection-end-column="2" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/devel/ray_bolger/run_all_combinations.sh">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="3" selection-start-line="3" selection-end-line="3" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pssim/get_visibilities.c">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="34" selection-start-line="34" selection-end-line="35" selection-end-column="34" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/devel/ray_bolger/run_all_combinations.sh">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="930">
-                  <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/devel/ray_bolger/varvis.c">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="36" selection-start-line="36" selection-end-line="36" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/devel/ray_bolger/tmp.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="780">
-                  <caret line="73" column="114" selection-start-line="73" selection-start-column="114" selection-end-line="73" selection-end-column="114" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -328,115 +56,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/layouts.py" />
-        <option value="$PROJECT_DIR$/single_bl_per_freq.py" />
-        <option value="$PROJECT_DIR$/weights.py" />
-        <option value="$PROJECT_DIR$/util.py" />
-        <option value="$PROJECT_DIR$/c_wrapper.py" />
-        <option value="$PROJECT_DIR$/basic_integrand.c" />
-        <option value="$PROJECT_DIR$/testc.py" />
-        <option value="$PROJECT_DIR$/compile.sbatch" />
-        <option value="$PROJECT_DIR$/run_layout.sbatch" />
-        <option value="$PROJECT_DIR$/check_simplest_analytic.py" />
-        <option value="$PROJECT_DIR$/power_integral.py" />
-        <option value="$PROJECT_DIR$/get_sparse_power.py" />
-        <option value="$PROJECT_DIR$/run_layout.py" />
-        <option value="$PROJECT_DIR$/numerical.py" />
-        <option value="$PROJECT_DIR$/run_layout.sh" />
-        <option value="$PROJECT_DIR$/make_power_spectra.py" />
-        <option value="$PROJECT_DIR$/mapping.py" />
-        <option value="$PROJECT_DIR$/plots.py" />
-        <option value="$PROJECT_DIR$/pssim/numerical.py" />
-        <option value="$PROJECT_DIR$/README.rst" />
-        <option value="$PROJECT_DIR$/pssim/__init__.py" />
-        <option value="$PROJECT_DIR$/scripts/run_layout.py" />
-        <option value="$PROJECT_DIR$/devel/run_layout.sh" />
-        <option value="$PROJECT_DIR$/pssim/plots.py" />
-        <option value="$PROJECT_DIR$/pssim/c_wrapper.py" />
-        <option value="$PROJECT_DIR$/pssim/get_visibilities.c" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/pssim/mapping.py" />
-        <option value="$PROJECT_DIR$/pssim/make_power_spectra.py" />
-        <option value="$PROJECT_DIR$/pssim/scripts/run_layout.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/pssim/layouts.py" />
-        <option value="$PROJECT_DIR$/devel/ray_bolger/run_all_combinations.sh" />
-        <option value="$PROJECT_DIR$/devel/ray_bolger/varvis.c" />
-        <option value="$PROJECT_DIR$/devel/ray_bolger/tmp.py" />
-        <option value="$PROJECT_DIR$/devel/ray_bolger/plot_tools.py" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="12" />
-    <option name="y" value="-9" />
-    <option name="width" value="493" />
-    <option name="height" value="1413" />
-  </component>
+  <component name="ProjectId" id="1P1hFvMLp0hffoCP4LujdEPGHkL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="point_source_simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="point_source_simulator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="point_source_simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="point_source_simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="devel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="point_source_simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="point_source_simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="devel" type="462c0819:PsiDirectoryNode" />
-              <item name="ray_bolger" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="point_source_simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="point_source_simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="pssim" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="point_source_simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="point_source_simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="pssim" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../HANKEL/hankel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bolger" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/pssim/scripts" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pssim" />
+      <recent name="$PROJECT_DIR$/pssim/scripts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -461,235 +100,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533654937862</updated>
+      <workItem from="1551287248204" duration="3486000" />
+      <workItem from="1560806652706" duration="1285000" />
+      <workItem from="1562789648164" duration="598000" />
+      <workItem from="1565047424224" duration="605000" />
     </task>
     <servers />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-1" y="-22" width="2562" height="1439" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17143993" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32928678" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.27659574" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32245827" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16149563" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32928678" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3566009" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.17526555" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/run_spokes.py" />
-    <entry file="file://$PROJECT_DIR$/single_bl_per_freq.py" />
-    <entry file="file://$PROJECT_DIR$/testc.py" />
-    <entry file="file://$PROJECT_DIR$/basic_integrand.c" />
-    <entry file="file://$PROJECT_DIR$/util.py" />
-    <entry file="file://$PROJECT_DIR$/power_integral.py" />
-    <entry file="file://$PROJECT_DIR$/layouts.py" />
-    <entry file="file://$PROJECT_DIR$/run_layout.sbatch" />
-    <entry file="file://$PROJECT_DIR$/compile.sbatch" />
-    <entry file="file://$PROJECT_DIR$/mapping.py" />
-    <entry file="file://$PROJECT_DIR$/numerical.py" />
-    <entry file="file://$PROJECT_DIR$/check_simplest_analytic.py" />
-    <entry file="file://$PROJECT_DIR$/make_power_spectra.py" />
-    <entry file="file://$PROJECT_DIR$/get_sparse_power.py" />
-    <entry file="file://$PROJECT_DIR$/run_layout.sh" />
-    <entry file="file://$PROJECT_DIR$/plots.py" />
-    <entry file="file://$PROJECT_DIR$/run_layout.py" />
-    <entry file="file://$PROJECT_DIR$/weights.py" />
-    <entry file="file://$PROJECT_DIR$/get_visibilities.c" />
-    <entry file="file://$PROJECT_DIR$/c_wrapper.py" />
-    <entry file="file://$PROJECT_DIR$/pssim/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pssim/numerical.py" />
-    <entry file="file://$PROJECT_DIR$/README.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pssim/scripts/run_layout.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1965">
-          <caret line="138" selection-start-line="138" selection-end-line="138" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pssim/layouts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2730">
-          <caret line="186" selection-start-line="186" selection-end-line="186" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1544726062018" expanded="true" signature="153:606" ph="..." />
-            <marker date="1544726062018" expanded="true" signature="3360:4624" ph="..." />
-            <marker date="1544726062018" expanded="true" signature="5843:7324" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pssim/make_power_spectra.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4605">
-          <caret line="314" column="36" selection-start-line="314" selection-start-column="36" selection-end-line="314" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1544209583913" expanded="true" signature="1867:2670" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="39" column="89" selection-start-line="39" selection-start-column="89" selection-end-line="39" selection-end-column="89" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pssim/plots.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="67" selection-start-line="62" selection-end-line="67" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pssim/mapping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1845">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
-          <folding>
-            <marker date="1544209583903" expanded="true" signature="434:503" ph="..." />
-            <marker date="1544209583903" expanded="true" signature="2464:2887" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/devel/run_layout.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="92" selection-start-line="92" selection-end-line="97" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pssim/get_visibilities.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" selection-start-line="34" selection-end-line="35" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/devel/ray_bolger/run_all_combinations.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/devel/ray_bolger/varvis.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/devel/ray_bolger/tmp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="73" column="114" selection-start-line="73" selection-start-column="114" selection-end-line="73" selection-end-column="114" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/devel/ray_bolger/analytic_1d_solution.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pssim/c_wrapper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
-          <folding>
-            <element signature="e#20#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/devel/ray_bolger/plot_tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
